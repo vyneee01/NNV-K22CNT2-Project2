@@ -1,0 +1,58 @@
+﻿@model ThuVienSach_NguyenNgocVy.Models.GIAO_DICH
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>GIAO_DICH</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NgayMuon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayMuon)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NgayTraDuKien)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayTraDuKien)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NgayTraThucTe)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayTraThucTe)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KHACH_HANG.HoTen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KHACH_HANG.HoTen)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SACH.TenSach)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SACH.TenSach)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaGD }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,64 @@
+﻿@model IEnumerable<ThuVienSach_NguyenNgocVy.ModelsViews.CartItem>
+
+@{
+    ViewBag.Title = "Thông Tin Giỏ Hàng";
+}
+<div class="row">
+    <div class="col-md-8">
+    <table class="table table table-bordered">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.ID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TenSach)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.HinhAnh)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SoLuongMua)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Gia)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ThanhTien)
+                </th>
+                <th>Chức năng</th>
+            </tr>
+        </thead>
+</div>
+<tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenSach)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HinhAnh)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoLuongMua)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ThanhTien)
+            </td>
+            <td>
+                @Html.ActionLink("Cập nhật giỏ", "UpDateToCart", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
+</tbody>
+
+    </table>
+</div>

@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ThuVienSach_K22CNT2_NguyenNgocVyModelStoreContainer" CdmEntityContainer="ThuVienSach_K22CNT2_NguyenNgocVyEntities">
+    <EntitySetMapping Name="CHI_TIET_GIAO_DICH">
+      <EntityTypeMapping TypeName="ThuVienSach_K22CNT2_NguyenNgocVyModel.CHI_TIET_GIAO_DICH">
+        <MappingFragment StoreEntitySet="CHI_TIET_GIAO_DICH">
+          <ScalarProperty Name="MaCTGD" ColumnName="MaCTGD" />
+          <ScalarProperty Name="MaGD" ColumnName="MaGD" />
+          <ScalarProperty Name="MaSach" ColumnName="MaSach" />
+          <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+          <ScalarProperty Name="GiaTien" ColumnName="GiaTien" />
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GIAO_DICH">
+      <EntityTypeMapping TypeName="ThuVienSach_K22CNT2_NguyenNgocVyModel.GIAO_DICH">
+        <MappingFragment StoreEntitySet="GIAO_DICH">
+          <ScalarProperty Name="MaGD" ColumnName="MaGD" />
+          <ScalarProperty Name="MaKH" ColumnName="MaKH" />
+          <ScalarProperty Name="MaSach" ColumnName="MaSach" />
+          <ScalarProperty Name="NgayMuon" ColumnName="NgayMuon" />
+          <ScalarProperty Name="NgayTraDuKien" ColumnName="NgayTraDuKien" />
+          <ScalarProperty Name="NgayTraThucTe" ColumnName="NgayTraThucTe" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KHACH_HANG">
+      <EntityTypeMapping TypeName="ThuVienSach_K22CNT2_NguyenNgocVyModel.KHACH_HANG">
+        <MappingFragment StoreEntitySet="KHACH_HANG">
+          <ScalarProperty Name="MaKH" ColumnName="MaKH" />
+          <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+          <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="SoDienThoai" ColumnName="SoDienThoai" />
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QUAN_TRI">
+      <EntityTypeMapping TypeName="ThuVienSach_K22CNT2_NguyenNgocVyModel.QUAN_TRI">
+        <MappingFragment StoreEntitySet="QUAN_TRI">
+          <ScalarProperty Name="MaQuanTri" ColumnName="MaQuanTri" />
+          <ScalarProperty Name="TenDangNhap" ColumnName="TenDangNhap" />
+          <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SACHes">
+      <EntityTypeMapping TypeName="ThuVienSach_K22CNT2_NguyenNgocVyModel.SACH">
+        <MappingFragment StoreEntitySet="SACH">
+          <ScalarProperty Name="MaSach" ColumnName="MaSach" />
+          <ScalarProperty Name="TenSach" ColumnName="TenSach" />
+          <ScalarProperty Name="TacGia" ColumnName="TacGia" />
+          <ScalarProperty Name="NamXuatBan" ColumnName="NamXuatBan" />
+          <ScalarProperty Name="NhaXuatBan" ColumnName="NhaXuatBan" />
+          <ScalarProperty Name="HinhAnh" ColumnName="HinhAnh" />
+          <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+          <ScalarProperty Name="Gia" ColumnName="Gia" />
+          <ScalarProperty Name="MaTheLoai" ColumnName="MaTheLoai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="THE_LOAI">
+      <EntityTypeMapping TypeName="ThuVienSach_K22CNT2_NguyenNgocVyModel.THE_LOAI">
+        <MappingFragment StoreEntitySet="THE_LOAI">
+          <ScalarProperty Name="MaTheLoai" ColumnName="MaTheLoai" />
+          <ScalarProperty Name="TenTheLoai" ColumnName="TenTheLoai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ThuVienSach_K22CNT2_NguyenNgocVyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CHI_TIET_GIAO_DICH">
+    <Key>
+      <PropertyRef Name="MaCTGD" />
+    </Key>
+    <Property Name="MaCTGD" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaGD" Type="Int32" />
+    <Property Name="MaSach" Type="Int32" />
+    <Property Name="SoLuong" Type="Int32" Nullable="false" />
+    <Property Name="GiaTien" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="TrangThai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="SACH" Relationship="Self.FK__CHI_TIET___MaSac__5BE2A6F2" FromRole="CHI_TIET_GIAO_DICH" ToRole="SACH" />
+    <NavigationProperty Name="GIAO_DICH" Relationship="Self.FK__CHI_TIET_G__MaGD__5AEE82B9" FromRole="CHI_TIET_GIAO_DICH" ToRole="GIAO_DICH" />
+  </EntityType>
+  <EntityType Name="GIAO_DICH">
+    <Key>
+      <PropertyRef Name="MaGD" />
+    </Key>
+    <Property Name="MaGD" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaKH" Type="Int32" />
+    <Property Name="MaSach" Type="Int32" />
+    <Property Name="NgayMuon" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="NgayTraDuKien" Type="DateTime" Precision="0" />
+    <Property Name="NgayTraThucTe" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="CHI_TIET_GIAO_DICH" Relationship="Self.FK__CHI_TIET_G__MaGD__5AEE82B9" FromRole="GIAO_DICH" ToRole="CHI_TIET_GIAO_DICH" />
+    <NavigationProperty Name="KHACH_HANG" Relationship="Self.FK__GIAO_DICH__MaKH__5629CD9C" FromRole="GIAO_DICH" ToRole="KHACH_HANG" />
+    <NavigationProperty Name="SACH" Relationship="Self.FK__GIAO_DICH__MaSac__571DF1D5" FromRole="GIAO_DICH" ToRole="SACH" />
+  </EntityType>
+  <EntityType Name="KHACH_HANG">
+    <Key>
+      <PropertyRef Name="MaKH" />
+    </Key>
+    <Property Name="MaKH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HoTen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NgaySinh" Type="DateTime" Precision="0" />
+    <Property Name="DiaChi" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="SoDienThoai" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="TrangThai" Type="Byte" Nullable="false" />
+    <NavigationProperty Name="GIAO_DICH" Relationship="Self.FK__GIAO_DICH__MaKH__5629CD9C" FromRole="KHACH_HANG" ToRole="GIAO_DICH" />
+  </EntityType>
+  <EntityType Name="QUAN_TRI">
+    <Key>
+      <PropertyRef Name="MaQuanTri" />
+    </Key>
+    <Property Name="MaQuanTri" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenDangNhap" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MatKhau" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TrangThai" Type="Byte" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SACH">
+    <Key>
+      <PropertyRef Name="MaSach" />
+    </Key>
+    <Property Name="MaSach" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenSach" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TacGia" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="NamXuatBan" Type="Int32" />
+    <Property Name="NhaXuatBan" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="HinhAnh" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="SoLuong" Type="Int32" />
+    <Property Name="Gia" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="MaTheLoai" Type="Int32" />
+    <NavigationProperty Name="CHI_TIET_GIAO_DICH" Relationship="Self.FK__CHI_TIET___MaSac__5BE2A6F2" FromRole="SACH" ToRole="CHI_TIET_GIAO_DICH" />
+    <NavigationProperty Name="GIAO_DICH" Relationship="Self.FK__GIAO_DICH__MaSac__571DF1D5" FromRole="SACH" ToRole="GIAO_DICH" />
+    <NavigationProperty Name="THE_LOAI" Relationship="Self.FK__SACH__MaTheLoai__534D60F1" FromRole="SACH" ToRole="THE_LOAI" />
+  </EntityType>
+  <EntityType Name="THE_LOAI">
+    <Key>
+      <PropertyRef Name="MaTheLoai" />
+    </Key>
+    <Property Name="MaTheLoai" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenTheLoai" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="SACHes" Relationship="Self.FK__SACH__MaTheLoai__534D60F1" FromRole="THE_LOAI" ToRole="SACH" />
+  </EntityType>
+  <Association Name="FK__CHI_TIET___MaSac__5BE2A6F2">
+    <End Role="SACH" Type="Self.SACH" Multiplicity="0..1" />
+    <End Role="CHI_TIET_GIAO_DICH" Type="Self.CHI_TIET_GIAO_DICH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SACH">
+        <PropertyRef Name="MaSach" />
+      </Principal>
+      <Dependent Role="CHI_TIET_GIAO_DICH">
+        <PropertyRef Name="MaSach" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CHI_TIET_G__MaGD__5AEE82B9">
+    <End Role="GIAO_DICH" Type="Self.GIAO_DICH" Multiplicity="0..1" />
+    <End Role="CHI_TIET_GIAO_DICH" Type="Self.CHI_TIET_GIAO_DICH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GIAO_DICH">
+        <PropertyRef Name="MaGD" />
+      </Principal>
+      <Dependent Role="CHI_TIET_GIAO_DICH">
+        <PropertyRef Name="MaGD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__GIAO_DICH__MaKH__5629CD9C">
+    <End Role="KHACH_HANG" Type="Self.KHACH_HANG" Multiplicity="0..1" />
+    <End Role="GIAO_DICH" Type="Self.GIAO_DICH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KHACH_HANG">
+        <PropertyRef Name="MaKH" />
+      </Principal>
+      <Dependent Role="GIAO_DICH">
+        <PropertyRef Name="MaKH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__GIAO_DICH__MaSac__571DF1D5">
+    <End Role="SACH" Type="Self.SACH" Multiplicity="0..1" />
+    <End Role="GIAO_DICH" Type="Self.GIAO_DICH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SACH">
+        <PropertyRef Name="MaSach" />
+      </Principal>
+      <Dependent Role="GIAO_DICH">
+        <PropertyRef Name="MaSach" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SACH__MaTheLoai__534D60F1">
+    <End Role="THE_LOAI" Type="Self.THE_LOAI" Multiplicity="0..1" />
+    <End Role="SACH" Type="Self.SACH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="THE_LOAI">
+        <PropertyRef Name="MaTheLoai" />
+      </Principal>
+      <Dependent Role="SACH">
+        <PropertyRef Name="MaTheLoai" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ThuVienSach_K22CNT2_NguyenNgocVyEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CHI_TIET_GIAO_DICH" EntityType="Self.CHI_TIET_GIAO_DICH" />
+    <EntitySet Name="GIAO_DICH" EntityType="Self.GIAO_DICH" />
+    <EntitySet Name="KHACH_HANG" EntityType="Self.KHACH_HANG" />
+    <EntitySet Name="QUAN_TRI" EntityType="Self.QUAN_TRI" />
+    <EntitySet Name="SACHes" EntityType="Self.SACH" />
+    <EntitySet Name="THE_LOAI" EntityType="Self.THE_LOAI" />
+    <AssociationSet Name="FK__CHI_TIET___MaSac__5BE2A6F2" Association="Self.FK__CHI_TIET___MaSac__5BE2A6F2">
+      <End Role="SACH" EntitySet="SACHes" />
+      <End Role="CHI_TIET_GIAO_DICH" EntitySet="CHI_TIET_GIAO_DICH" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CHI_TIET_G__MaGD__5AEE82B9" Association="Self.FK__CHI_TIET_G__MaGD__5AEE82B9">
+      <End Role="GIAO_DICH" EntitySet="GIAO_DICH" />
+      <End Role="CHI_TIET_GIAO_DICH" EntitySet="CHI_TIET_GIAO_DICH" />
+    </AssociationSet>
+    <AssociationSet Name="FK__GIAO_DICH__MaKH__5629CD9C" Association="Self.FK__GIAO_DICH__MaKH__5629CD9C">
+      <End Role="KHACH_HANG" EntitySet="KHACH_HANG" />
+      <End Role="GIAO_DICH" EntitySet="GIAO_DICH" />
+    </AssociationSet>
+    <AssociationSet Name="FK__GIAO_DICH__MaSac__571DF1D5" Association="Self.FK__GIAO_DICH__MaSac__571DF1D5">
+      <End Role="SACH" EntitySet="SACHes" />
+      <End Role="GIAO_DICH" EntitySet="GIAO_DICH" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SACH__MaTheLoai__534D60F1" Association="Self.FK__SACH__MaTheLoai__534D60F1">
+      <End Role="THE_LOAI" EntitySet="THE_LOAI" />
+      <End Role="SACH" EntitySet="SACHes" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,26 @@
+﻿@model IEnumerable<ThuVienSach_NguyenNgocVy.Models.SACH>
+
+@{
+    ViewBag.Title = "Kho Sách Trong Thư Viện";
+}
+
+
+<p>
+    @Html.ActionLink("Thêm Sách Mới", "Create")
+</p>
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-3 mt-2">
+            <div class="card w-100">
+                <img src="@item.HinhAnh" class="card-img-top" alt="@item.TenSach">
+                <div class="card-body">
+                    <h5 class="card-title">@item.TenSach</h5>
+                    <p>Giá: <span class="text-danger">@item.Gia.Value.ToString("#,##0")</span> </p>
+                    <a href="#" class="btn btn-primary"> Mua Hàng</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+</table>
